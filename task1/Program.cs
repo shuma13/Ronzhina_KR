@@ -1,10 +1,10 @@
 ﻿
-void FillArray(string [] coll)
+void FillArray(string[] coll)
 {
     int length = coll.Length;
     for (int i = 0; i < length; i++)
     {
-        System.Console.WriteLine($"введите {i+1}-е значение для массива");
+        System.Console.WriteLine($"введите {i + 1}-е значение для массива");
         string som = Console.ReadLine();
         coll[i] = som;
     }
@@ -23,30 +23,35 @@ void ShowArray(string[] arrayToShow)
     }
     Console.Write("]");
 }
-string []  myFunk (string []masiv)
+string[] GetConvertedArray(string[] masiv)
 {
-    int digit =masiv.Length;
-    string[]coll = new string[digit];
-    int j=0;
-    for (int i = 0; i < masiv.Length; i++)
+    int digit = masiv.Length;
+    string[] coll = new string[digit];
+    int j = 0;
+    for (int i = 0; i < digit; i++)
     {
         string element = masiv[i];
         int length = element.Length;
-        if (length<3)
+        if (length < 4)
         {
-            coll[j]= masiv[i];
+            coll[j] = masiv[i];
             j++;
         }
     }
+    string[] masiv2 = new string[j];
+    for (int i = 0; i < masiv2.Length; i++)
+    {
+        masiv2[i] = coll[i];
+    }
 
-    return coll;
+    return masiv2;
 }
 
 Console.WriteLine("введите длину массива");
 int digit = Convert.ToInt32(Console.ReadLine());
-string[]array = new string[digit];
+string[] array = new string[digit];
 FillArray(array);
 ShowArray(array);
 Console.Write(" -> ");
- string[]array2 = myFunk(array);
- ShowArray(array2);
+string[] array2 = GetConvertedArray(array);
+ShowArray(array2);
